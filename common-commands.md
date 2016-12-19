@@ -131,10 +131,12 @@
 
 
 
-示例代码
+示例代码：
 
 `rostopic echo /turtle1/cmd_vel`
 
+查看tf tree
+`rosrun rqt_tf_tree rqt_tf_tree`
 
 
 列出当前发布的话题
@@ -147,7 +149,7 @@
 
 `rostopic info topic-name`
 
-
+`rostopic echo topic-name -n 1 --noarr`
 
 
 
