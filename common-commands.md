@@ -27,13 +27,9 @@
 
 `catkin_make`
 
-
-
 看依赖
 
 `rospack depends1 beginner_tutorials`
-
-
 
 切到包中
 
@@ -84,15 +80,49 @@
 `roscore` 
 
 
-使用命令行发布数据
-
-`rostopic pub -r rate-in-hz topic-name message-type message content`
-
-
 
 运行某一个节点
 
 `rosrun turtlesim turtlesim_node`
+
+
+
+## 调试
+
+查看当前系统运行情况的动态图形
+
+`rosrun rqt_graph rqt_graph`
+
+
+
+问题检查
+
+`roswtf`
+
+
+
+查看/rosout消息
+
+`rqt_console`
+
+
+
+查看参数列表
+
+`rosparam list`
+
+查看参数值
+
+`rosparam get param_name`
+
+设置参数
+
+`rosparam set param_name`
+
+`<param name="distro" value="blue">
+
+## ROS node
+
 
 
 完全删除已经运行完毕节点的记录
@@ -100,9 +130,16 @@
 `rosnode cleanup`
 
 
-将数据发布到某个正在广播的话题上
 
-`rostopic pub topic [args]`
+获取特定节点的信息
+
+`rosnode info node-name`
+
+
+
+
+
+
 
 
 查看发布到某个话题上面的图形
@@ -112,24 +149,30 @@
 
 
 
-##调试
-
-查看当前系统运行情况的动态图形
-
-`rosrun rqt_graph rqt_graph`
 
 
 
-获取特定节点的信息
 
-`rosnode info node-name`
+
+## ROS topic
+
+查看消息类型
+
+`$ rostopic type /turtle1/cmd_vel`
+
+`你应该会看到:geometry_msgs/Twist`
+
+
+
+将数据发布到某个正在广播的话题上
+
+`rostopic pub topic [args]`
+
 
 
 查看在某个话题上发布的数据
 
 `rostopic echo [topic]`
-
-
 
 示例代码：
 
@@ -137,7 +180,6 @@
 
 查看tf tree
 `rosrun rqt_tf_tree rqt_tf_tree`
-
 
 列出当前发布的话题
 
@@ -153,13 +195,19 @@
 
 
 
-查看消息类型
+使用命令行发布数据
 
-`$ rostopic type /turtle1/cmd_vel`
-
-`你应该会看到:geometry_msgs/Twist`
+`rostopic pub -r rate-in-hz topic-name message-type message content`
 
 
+
+查找使用某消息的话题
+
+`$ rostopic find /message_type: `
+
+
+
+## ROS messages
 
 查看消息的详细情况
 
@@ -185,8 +233,13 @@
 
 
 
+`$ rosmsg list: This lists all message`
 
-服务相关
+`$ rosmsg package [package_name]: This lists messages in a package`
+
+
+
+## ROS services
 
 ```
 
@@ -199,13 +252,26 @@
     rosservice find         依据类型寻找服务find services by service type
     
     rosservice uri          输出服务的ROSRPC uri
-```  
+```
+
+
+
+
+
+## ROS bags
 
 
 
 录制
 
+`$ rosbag record  topic_name -o bag_name`
 
+ We can also record all topics using the -a argument.`
+
+播放
+`$ rosbag play [bag_name]: This will playback the existing bag file.`
+
+查看信息
 
 `rosbag info NAMErosbag play NAME`
 
@@ -213,40 +279,7 @@
 
 
 
-问题检查
 
-`roswtf`
-
-
-
-
-
-
-
-
-
-查看/rosout消息
-
-`rqt_console`
-
-
-
-查看参数列表
-
-`rosparam list`
-
-
-查看参数值
-
-`rosparam get param_name`
-
-
-设置参数
-
-
-`rosparam set param_name`
-
-`<param name="distro" value="blue">
 
 
 
