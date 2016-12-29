@@ -55,7 +55,37 @@ When ever referring to a folder which can either be a development space or an in
 所有在msg路径下的.msg文件都将转换为ROS所支持语言的源代码。生成的C++头文件将会放置在~/catkin_ws/devel/include/beginner_tutorials/。 Python脚本语言会在~/catkin_ws/devel/lib/python2.7/dist-packages/beginner_tutorials/msg 目录下创建。 lisp文件会出现在~/catkin_ws/devel/share/common-lisp/ros/beginner_tutorials/msg/ 路径下.
 
 
+###The use of each folder in ROS package
+- config: All configuration files that are used in this ROS package are kept in this
+folder. This folder is created by the user and is a common practice to name the folder
+config to keep the configuration files in it.
+
+- include/package_name: This folder consists of headers and libraries that we need to
+use inside the package.
+
+- scripts: This folder keeps executable Python scripts. In the block diagram, we can
+see two example scripts.
+
+- src: This folder stores the C++ source codes. We can see two examples of the source
+code in the block diagram.
+
+- launch: This folder keeps the launch files that are used to launch one or more ROS
+nodes.
+
+- msg: This folder contains custom message definitions.
+
+- srv: This folder contains the service definitions.
+
+- action: This folder contains the action definition. We will see more about actionlib
+in the upcoming sections.
+
+- package.xml: This is the package manifest file of this package.
+
+- CMakeLists.txt: This is the CMake build file of this package.
+
 
 ##REF
 
-http://wiki.ros.org/cn/ROS/
+- http://wiki.ros.org/cn/ROS/
+
+- “Mastering ROS for Robotics Programming(PACKT, 2015).pdf”
